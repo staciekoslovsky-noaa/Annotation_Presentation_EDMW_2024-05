@@ -1,0 +1,64 @@
+---
+title: "AI-ready Data Management Practices:"
+subtitle: "Alaska Ice Seals and Harbor Seals"
+author: "Stacie Koslovsky"
+date: "2024-05-17"
+format: 
+  revealjs:
+    theme: sky
+editor: visual
+logo: https://www.fisheries.noaa.gov/themes/custom/noaa_components/images/fisheries_header_logo_jul2019.png
+footer: "NOAA EDMW | AI-Ready Data | Stacie Koslovsky"
+---
+
+## Polar Ecosystems Program
+
+We study harbor seals and 4 species of ice-associated seals in Alaska.
+
+## Overview of Image Data Streams
+
+-   Ice Seal Surveys
+
+-   Glacial Harbor Seal Surveys
+
+-   Coastal (terrestrial) Harbor Seal Surveys
+
+## KAMERA System
+
+## Ice Seal Surveys 
+
+Use in-flight KAMERA system to collect infrared, RGB, and UV imagery
+
+Use detection model to find hotspots in the thermal imagery.
+
+Currently, manually review all thermal hotspots for species identification, but the development/evaluation of a color classification model is underway.
+
+## Glacial Harbor Seal Surveys
+
+Use in-flight KAMERA system to collect infrared and RGB imagery.
+
+For lower-altitude surveys, use detection model to find hotspots in the thermal imagery (using thermal model developed for ice-associated seals). Review color imagery to classify harbor seals.
+
+For higher-altitude surveys, data are . Use suppression and ignore zones to indicate areas of overlap. Manually review all images and annotate all seals. Duplicates are flagged during post-processing.
+
+## Coastal Harbor Seal Surveys
+
+Collect oblique imagery in-flight using digital SLR camera.
+
+Data are ingested into DB, reviewed to identify which images should be counted. Images that are not selected for counting are either labeled "do not use - contains seals" or "do not use - no seals" to differentiate background imagery from frames that are just not being used for counting.
+
+Once images are selected, run R code to generate image lists for selected images and seals (and ignore zones) are annotates using Kitware's DIVE software.
+
+## AI-Ready Data Efforts
+
+-   Store standardized outputs from each project schema as queries (not all data were collected/processed the same way over the years, so this gives us equivalent data structures to work with)
+
+-   Track how images are/were used (manual review, training, test, validation)
+
+-   Consistent annotation labeling for ease of cross-project training (for staff), annotating
+
+-   Store image names, network paths and image-information data in DB structure - allows for ad hoc queries
+
+-   Develop functions in pepDataConnect R package for generating image lists and/or annotation files for use in DIVE
+
+## Thank you!
