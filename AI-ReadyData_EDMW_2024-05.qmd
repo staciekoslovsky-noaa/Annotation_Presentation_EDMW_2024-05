@@ -13,7 +13,13 @@ footer: "NOAA EDMW | AI-Ready Data | Stacie Koslovsky"
 
 ## Polar Ecosystems Program
 
-We study harbor seals and 4 species of ice-associated seals in Alaska.
+-   NOAA Fisheries - Alaska Fisheries Science Center
+
+-   Harbor seals and 4 species of ice-associated seals
+
+-   Abundance and distribution of all species
+
+![](images/DSC00105_edited.JPG){fig-align="center"}
 
 ## Overview of Image Data Streams
 
@@ -40,6 +46,8 @@ Use in-flight KAMERA system to collect infrared and RGB imagery.
 For lower-altitude surveys, use detection model to find hotspots in the thermal imagery (using thermal model developed for ice-associated seals). Review color imagery to classify harbor seals.
 
 For higher-altitude surveys, data are . Use suppression and ignore zones to indicate areas of overlap. Manually review all images and annotate all seals. Duplicates are flagged during post-processing.
+
+{{< video images/20200904_141207.mp4 >}}
 
 ## Coastal Harbor Seal Surveys
 
