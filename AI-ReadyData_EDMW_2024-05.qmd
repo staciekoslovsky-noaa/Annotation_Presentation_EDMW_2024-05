@@ -97,7 +97,7 @@ All image processing handled through Kitware's VIAME software:
 
 -   [**Standardize annotation labeling**]{.underline} for ease of cross-project training (for staff) and for combining datasets for different AI/ML needs.
 
--   [**Store standardized outputs from each project schema as queries**]{.underline} (not all data were collected/processed the same way over the years, so this gives us equivalent data structures to work with).
+-   [**Store standardized outputs from each project schema as queries**]{.underline} (not all data were collected/processed the same way over the years).
 
 -   [**Store image names, network paths and image-information data in DB structure**]{.underline} (allows for ad hoc queries).
 
