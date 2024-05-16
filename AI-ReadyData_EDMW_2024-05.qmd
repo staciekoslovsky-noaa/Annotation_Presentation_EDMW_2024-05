@@ -11,7 +11,7 @@ editor: visual
 logo: https://www.fisheries.noaa.gov/themes/custom/noaa_components/images/fisheries_header_logo_jul2019.png
 footer: "NOAA EDMW | AI-Ready Data | Stacie Koslovsky"
 title-slide-attributes:
-  data-background-image: images/20210519_121630.jpg
+  data-background-image: AI-ReadyData_EDMW_2024-05_files/images/20210829_132226.jpg
   data-background-opacity: "0.5"
 ---
 
@@ -23,76 +23,98 @@ title-slide-attributes:
 
 -   Abundance and distribution of all species
 
-![](images/DSC00105_edited.JPG){fig-align="center" width="694"}
+![](AI-ReadyData_EDMW_2024-05_files/images/DSC00105_edited.JPG){fig-align="center" width="972"}
 
-## Overview of Image Data Streams {.smaller}
+## Image Data Streams {.smaller}
 
-::: columns
-::: {.column width="66%"}
-![](images/20200904_190223.jpg)
-:::
+All image processing handled through Kitware's VIAME software:
 
-::: {.column width="34%"}
 -   Ice Seal Surveys
 
 -   Glacial Harbor Seal Surveys
 
--   Coastal (terrestrial) Harbor Seal Surveys
-:::
-:::
+-   Coastal Harbor Seal Surveys
 
-## KAMERA System
+![](AI-ReadyData_EDMW_2024-05_files/images/20200904_190223.jpg){fig-align="center" width="925"}
+
+## KAMERA System {.smaller}
+
+[**K**]{.underline}itware [**I**]{.underline}mage [**A**]{.underline}cquisition [**M**]{.underline}anag[**ER**]{.underline} and [**A**]{.underline}rchiver
 
 ::: columns
 ::: {.column width="50%"}
-![](images/20200825_183351-05.jpg){width="431"}
+![](AI-ReadyData_EDMW_2024-05_files/images/20200825_183351.jpg){width="394"}
 :::
 
 ::: {.column width="50%"}
-![](AI-ReadyData_EDMW_2024-05_files/images/20200901_170427.jpg){width="431"}
+![](AI-ReadyData_EDMW_2024-05_files/images/20200901_170427.jpg){width="394"}
 :::
 :::
 
-## Ice Seal Surveys  {.smaller}
+## Ice Seal Surveys {.smaller}
 
 -   Use in-flight KAMERA system to collect infrared, RGB, and UV imagery.
 
--   Use detection model to find hotspots in the thermal imagery.
+-   [**Use detection model**]{.underline} to identify hotspots in the thermal imagery.
 
--   Currently, manually review all thermal hotspots for species identification, but the development/evaluation of a color classification model is underway.
+-   Currently, [*manually review all thermal hotspots for species identification*]{.underline}, but the development/evaluation of a color classification model is underway.
 
-    ![](images/20210517_120403.jpg){fig-align="center" width="711"}
+    ![](AI-ReadyData_EDMW_2024-05_files/images/20210519_121630.jpg){fig-align="center" width="711"}
 
 ## Glacial Harbor Seal Surveys {.smaller}
 
+::: columns
+::: {.column width="50%"}
 -   Use in-flight KAMERA system to collect infrared and RGB imagery.
 
--   For lower-altitude surveys, use detection model to find hotspots in the thermal imagery (using thermal model developed for ice-associated seals). Review color imagery to classify harbor seals.
+-   Two types of surveys:
 
--   For higher-altitude surveys, data are . Use suppression and ignore zones to indicate areas of overlap. Manually review all images and annotate all seals. Duplicates are flagged during post-processing.
+    -   **For lower-altitude surveys**, [*use detection model*]{.underline} to find hotspots in the thermal imagery (using thermal model developed for ice-associated seals). Review color imagery to classify harbor seals.
 
-![](images/20200904_141206_edited.jpg)
+    -   **For higher-altitude surveys**, use suppression and ignore zones to indicate areas of overlap. [*Manually review all images and annotate all seals*]{.underline}. Duplicates are flagged during post-processing.
+:::
 
-## Coastal Harbor Seal Surveys
+::: {.column width="50%"}
+![](AI-ReadyData_EDMW_2024-05_files/images/20200904_141206_edited.jpg){width="622"}
+:::
+:::
 
-Collect oblique imagery in-flight using digital SLR camera.
+## Coastal Harbor Seal Surveys {.smaller}
 
-Data are ingested into DB, reviewed to identify which images should be counted. Images that are not selected for counting are either labeled "do not use - contains seals" or "do not use - no seals" to differentiate background imagery from frames that are just not being used for counting.
+-   Collect oblique imagery in-flight using digital SLR camera.
 
-Once images are selected, run R code to generate image lists for selected images and seals (and ignore zones) are annotates using Kitware's DIVE software.
+-   Images are reviewed to label them as counted, uncounted, or background.
 
-![](images/SKH03539.JPG)
+-   Once images are selected, run R code to generate image lists for selected images and [**manually review and annotate seals**]{.underline}.
 
-## AI-Ready Data Efforts
+![](AI-ReadyData_EDMW_2024-05_files/images/SKH03539.JPG){fig-align="center" width="691"}
 
--   Store standardized outputs from each project schema as queries (not all data were collected/processed the same way over the years, so this gives us equivalent data structures to work with)
+## AI-Ready Data Efforts {.smaller}
 
--   Track how images are/were used (manual review, training, test, validation)
+::: columns
+::: {.column width="75%"}
+-   [**Annotate all seals**]{.underline} and subset as appropriate for population analyses.
 
--   Consistent annotation labeling for ease of cross-project training (for staff), annotating
+-   [**Standardize annotation labeling**]{.underline} for ease of cross-project training (for staff) and for combining datasets for different AI/ML needs.
 
--   Store image names, network paths and image-information data in DB structure - allows for ad hoc queries
+-   [**Store standardized outputs from each project schema as queries**]{.underline} (not all data were collected/processed the same way over the years, so this gives us equivalent data structures to work with).
 
--   Develop functions in pepDataConnect R package for generating image lists and/or annotation files for use in DIVE
+-   [**Store image names, network paths and image-information data in DB structure**]{.underline} (allows for ad hoc queries).
 
-## Thank you!
+-   [**Track how images are/were used**]{.underline} (manual review, training, test, validation, background (no seals)).
+
+-   [**Develop functions in pepDataConnect R package**]{.underline} for generating image lists and/or annotation files for use in DIVE.
+:::
+
+::: {.column width="25%"}
+![](AI-ReadyData_EDMW_2024-05_files/images/2024-05-16 15_21_14-pgAdmin 4.png)
+:::
+:::
+
+## Thank You {.smaller}
+
+![](AI-ReadyData_EDMW_2024-05_files/images/20210829_132226.jpg){fig-align="center" width="824"}
+
+-   Aerial survey leads (Erin Moreland, Josh London, John Jansen) + program staff
+
+-   Kitware (VIAME and KAMERA development)
