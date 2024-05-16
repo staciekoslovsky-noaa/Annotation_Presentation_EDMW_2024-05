@@ -6,9 +6,13 @@ date: "2024-05-17"
 format: 
   revealjs:
     theme: sky
+    embed-resources: true
 editor: visual
 logo: https://www.fisheries.noaa.gov/themes/custom/noaa_components/images/fisheries_header_logo_jul2019.png
 footer: "NOAA EDMW | AI-Ready Data | Stacie Koslovsky"
+title-slide-attributes:
+  data-background-image: images/20210519_121630.jpg
+  data-background-opacity: "0.5"
 ---
 
 ## Polar Ecosystems Program
@@ -19,35 +23,55 @@ footer: "NOAA EDMW | AI-Ready Data | Stacie Koslovsky"
 
 -   Abundance and distribution of all species
 
-![](images/DSC00105_edited.JPG){fig-align="center"}
+![](images/DSC00105_edited.JPG){fig-align="center" width="694"}
 
-## Overview of Image Data Streams
+## Overview of Image Data Streams {.smaller}
 
+::: columns
+::: {.column width="66%"}
+![](images/20200904_190223.jpg)
+:::
+
+::: {.column width="34%"}
 -   Ice Seal Surveys
 
 -   Glacial Harbor Seal Surveys
 
 -   Coastal (terrestrial) Harbor Seal Surveys
+:::
+:::
 
 ## KAMERA System
 
-## Ice Seal Surveys 
+::: columns
+::: {.column width="50%"}
+![](images/20200825_183351-05.jpg){width="431"}
+:::
 
-Use in-flight KAMERA system to collect infrared, RGB, and UV imagery
+::: {.column width="50%"}
+![](AI-ReadyData_EDMW_2024-05_files/images/20200901_170427.jpg){width="431"}
+:::
+:::
 
-Use detection model to find hotspots in the thermal imagery.
+## Ice Seal Surveys  {.smaller}
 
-Currently, manually review all thermal hotspots for species identification, but the development/evaluation of a color classification model is underway.
+-   Use in-flight KAMERA system to collect infrared, RGB, and UV imagery.
 
-## Glacial Harbor Seal Surveys
+-   Use detection model to find hotspots in the thermal imagery.
 
-Use in-flight KAMERA system to collect infrared and RGB imagery.
+-   Currently, manually review all thermal hotspots for species identification, but the development/evaluation of a color classification model is underway.
 
-For lower-altitude surveys, use detection model to find hotspots in the thermal imagery (using thermal model developed for ice-associated seals). Review color imagery to classify harbor seals.
+    ![](images/20210517_120403.jpg){fig-align="center" width="711"}
 
-For higher-altitude surveys, data are . Use suppression and ignore zones to indicate areas of overlap. Manually review all images and annotate all seals. Duplicates are flagged during post-processing.
+## Glacial Harbor Seal Surveys {.smaller}
 
-{{< video images/20200904_141207.mp4 >}}
+-   Use in-flight KAMERA system to collect infrared and RGB imagery.
+
+-   For lower-altitude surveys, use detection model to find hotspots in the thermal imagery (using thermal model developed for ice-associated seals). Review color imagery to classify harbor seals.
+
+-   For higher-altitude surveys, data are . Use suppression and ignore zones to indicate areas of overlap. Manually review all images and annotate all seals. Duplicates are flagged during post-processing.
+
+![](images/20200904_141206_edited.jpg)
 
 ## Coastal Harbor Seal Surveys
 
@@ -56,6 +80,8 @@ Collect oblique imagery in-flight using digital SLR camera.
 Data are ingested into DB, reviewed to identify which images should be counted. Images that are not selected for counting are either labeled "do not use - contains seals" or "do not use - no seals" to differentiate background imagery from frames that are just not being used for counting.
 
 Once images are selected, run R code to generate image lists for selected images and seals (and ignore zones) are annotates using Kitware's DIVE software.
+
+![](images/SKH03539.JPG)
 
 ## AI-Ready Data Efforts
 
